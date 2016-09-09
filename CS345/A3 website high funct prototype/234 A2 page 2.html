@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</title>
+
+<link rel ="stylesheet" type="text/css" href="custom.css"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<style> @font-face { font-family: GT Walsheim; 
+src: url("Grilli-Type-Trial-Fonts-2016-1/GT-Walsheim-Pro-Trial-Black"); </style>
+
+<link rel="stylesheet" href="fa/css/font-awesome.css">
+
+
+
+<script>
+function myFunc() {
+if(document.getElementById("big").style.display == "block"){
+
+document.getElementById("big").style.display ="none";
+document.getElementById("close").style.display ="none";
+var x = document.getElementsByClassName("view");
+	var i;
+	for(i=0; i<x.length;i++){
+	x[i].style.opacity="1";
+	}
+}else{
+    document.getElementById("big").style.display = "block";
+	document.getElementById("close").style.display="block";
+	var x = document.getElementsByClassName("view");
+	var i;
+	for(i=0; i<x.length;i++){
+	x[i].style.opacity="0.5";
+	}
+	}
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+<body>
+
+
+
+
+
+
+
+
+
+<main>
+
+
+<header>
+
+
+
+<div class="underline">
+<h1 class="page-header">XYZ<h1>
+</div>
+<p class="greeting">Hi Julie!<br>
+You are logged in. Log out?</p>
+</header>
+
+
+<div class="nav">
+<ul>
+<li><a href="345 A3.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
+<li><a href="#"><i class="fa fa-history" aria-hidden="true"></i>History</a></li>
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class ="main">
+
+<nav id="left" class="col">
+<h2>Security</h2>
+<ul>
+<li id ="opt1"><a href="#"><i class="fa fa-lock fa-fw " aria-hidden="true"></i>&nbsp;Locks</a></li>
+<li id="opt2"><a href=""><i class="fa fa-bell fa-fw" aria-hidden="true"></i>Alarms</a>&nbsp;</li>
+<li><a href="345 A3.html"""><i class="fa fa-video-camera fa-fw" aria-hidden="true"></i>Cameras</a>&nbsp;</li>
+</ul>
+
+</nav>
+
+
+
+<div class="camera">
+
+
+<div id="cam1" class="view camera">
+<span class="cam_name">Camera 1</span>
+<button id="zoom1" class="button-group" type="button"><span class="fa fa-expand" aria-hidden></span></button>
+</div>
+
+
+<div id="cam2" class="view camera">
+<span class="cam_name">Camera 2</span>
+<button id="zoom2" onclick="myFunc()" class="button-group" type="button"><span class="fa fa-expand" aria-hidden></span></button>
+</div>
+
+
+<div id="cam3" class="view camera">
+<span class="cam_name">Camera 3</span>
+<button id="zoom3" type="button"><span class="fa fa-expand" aria-hidden="true"></span></button>
+</div>
+
+<div class="photowrapper">
+<img id="big" class="big-box" src="camera1.jpg" alt="zoomed video view">
+<div id="div-1a" data-role="fieldcontain">
+<button onclick="myFunc()" id="close" type="button"><span class="fa fa-times fa-lg" aria-hidden="true"="true"></span></button>
+    
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+</main>
+
+
+
+<footer>
+<p id="contact">Contact us</p>
+</footer>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</title>
+
+<link rel ="stylesheet" type="text/css" href="custom.css"/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:700' rel='stylesheet' type='text/css'>
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<style> @font-face { font-family: GT Walsheim; 
+src: url("Grilli-Type-Trial-Fonts-2016-1/GT-Walsheim-Pro-Trial-Black"); </style>
+
+<link rel="stylesheet" href="fa/css/font-awesome.css">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+
+
+
+
+<script>
+
+function lockFun(el){ //function to update status and change lock icon
+document.getElementById("lock-status").style.display ="block";
+
+
+
+var x;
+if(el.id =='myid1'){ 
+x="padlock1"
+}else{
+x="padlock2"
+}
+
+var date = new Date();
+var n = date.toDateString();
+var time = date.toLocaleTimeString();
+
+
+
+
+if(document.getElementById(el.id).checked) {
+	
+    document.getElementById("newnote").innerHTML= ("<br>"+el.value +" has been locked"+"<br>"+n+" "+time);
+	document.getElementById(x).className="fa fa-lock fa-fw fa-2x";
+	
+} else { //box is unchecked
+	document.getElementById("newnote").innerHTML= ("<br>"+el.value +" has been unlocked"+"<br>"+n+" " + time);
+	document.getElementById(x).className="fa fa-unlock fa-fw fa-2x";
+	
+    
+}
+        
+     
+}
+</script>
+
+<script>
+
+function lockMenu(){
+if(document.getElementById("locks").style.display == "block"){
+document.getElementById("locks").style.display="none";
+document.getElementById("middle").style.display="block";
+
+}else{
+document.getElementById("locks").style.display="block";
+document.getElementById("middle").style.display="none";
+}
+}
+</script>
+
+
+<script>
+
+function showSub(el){ //function to show Lock Sub Menu
+
+var i;
+
+var y= document.getElementsByClassName("doorlocks");//this is reverse of show sub function-will make locks invisb
+for(i=0;i<y.length;i++){
+y[i].style.display ="none";
+}
+
+
+
+if(el.id =="d"){ // show downstairs sub
+document.getElementById("u2").style.display="none";
+
+if(document.getElementById("d2").style.display == "block"){
+
+document.getElementById("d2").style.display="none";
+}else{
+
+document.getElementById("d2").style.display="block";
+}
+
+
+
+
+
+
+
+
+}else{
+
+document.getElementById("d2").style.display="none"; //close if d sub menu is open
+if(document.getElementById("u2").style.display=="block"){
+document.getElementById("u2").style.display="none";
+
+}else{
+document.getElementById("u2").style.display ="block";
+
+}
+
+
+
+
+}
+
+}//end function
+</script>
+
+
+<script> //hide the locks
+
+function showLocks(){
+document.getElementById("u2").style.display="none"; //make upstairs sub menu invisible
+document.getElementById("d2").style.display ="none";//make downstairs sub menu invisible
+
+
+
+var i;
+
+var y= document.getElementsByClassName("doorlocks");
+for(i=0;i<y.length;i++){
+y[i].style.display ="block";
+}
+
+document.getElementById("lock-status").style.visibility ="visible";
+	
+}
+</script>
+
+
+</head>
+
+
+
+
+
+
+
+
+<body>
+<div class="wrapper">
+
+
+<header>
+
+
+<div class="underline">
+<h1 class="page-header">XYZ<h1>
+</div>
+<p class="greeting">Hi Julie!<br>
+<span style="font-family:'Roboto', sans-serif">You are logged in. Log out?</span></p>
+</header>
+
+
+
+
+
+
+
+
+<div class="nav">
+<ul>
+<li><a href="345 A3.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a></li>
+<li><a href="#"><i class="fa fa-history" aria-hidden="true"></i>History</a></li>
+
+
+</ul>
+
+
+</div>
+
+<div class ="main">
+
+<nav id="left" class="col">
+
+<h2>Security</h2>
+
+<ul>
+<li><a href="#" onclick="lockMenu()"><i class="fa fa-lock fa-fw " aria-hidden="true"></i>&nbsp;Locks</a></li>
+<li><a href="#"><i class="fa fa-bell fa-fw" aria-hidden="true"></i>Alarms</a>&nbsp;</li>
+<li><a href="234 A2 page 2.html"""><i class="fa fa-video-camera fa-fw" aria-hidden="true"></i>Cameras</a>&nbsp;</li>
+</ul>
+
+</nav>
+
+
+
+
+
+<div id ="locks">
+
+<h2 id="lock-title">Locks</h2>
+
+<nav class = "sub">
+	<ul>
+		
+		<li><a href="#" onclick="showSub(this)"  class="down" id="d"><i class="fa fa-level-down fa-fw" aria-hidden="true"></i>Downstairs</a>
+			<ul class="downrooms" id="d2">
+				<li><a href="#">hallway</a></li>
+				<li><a href="#">study</a></li>
+			</ul>
+		</li>
+
+
+
+		<li><a href="#"class="up" onclick="showSub(this)"  id="u"><i class="fa fa-level-up fa-fw" aria-hidden="true"></i>Upstairs</a>
+			<ul class="uprooms" id="u2">
+				<li><a href="#">bedroom 1</a></li>
+				<li><a href="#">guest room</a></li>
+				<li><a href="#">master bed</a></li>
+				<li><a href="#">laundry</a></li>
+</ul>
+		</li>
+		<li><a href="#"onclick ="showLocks()"><i class="fa fa-tree fa-fw" aria-hidden="true"></i>Outdoor</a></li>
+	</ul>
+</nav>
+
+<div id="lock-status" class = "doorlocks">
+</div>
+
+
+
+<ul  >      
+    <li class="doorlocks">Gate  
+        <input type="checkbox" onclick="lockFun(this)" value="Gate" name="Lock" id="myid1" checked><span id ="padlock1" class="fa fa-lock fa-fw fa-2x" aria-hidden="true"></span>
+        
+    </li>
+	<li class="doorlocks"></li>
+    <li class="doorlocks">Front Door
+        <input type="checkbox" onclick="lockFun(this)"  value="Front Door" name="Lock" id="myid2" checked>
+        <span id ="padlock2" class="fa fa-lock fa-fw fa-2x" aria-hidden="true"></span>
+    </li>
+</ul>
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<div id="middle" class = "col">
+<h2>Environment</h2>
+<ul>
+<li><a href=""><i class="fa fa-sun-o fa-fw" aria-hidden="true"></i>Temperature</a></li>
+<li><a href=""><i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i>Lighting</a></li>
+<li><a href=""><i class="fa fa-television fa-fw" aria-hidden="true"></i>Appliances</a></li>
+</ul>
+
+</div>
+
+<div id="right" class="col">
+<h2>Notifications</h2>
+<div class="news">
+<p id="newnote">The new notifications will go here</p>
+<p>All locks on. 07.15am Today</p>
+</div>
+</div>
+
+
+</div>
+
+
+
+<footer>
+<p id="contact">Contact us</p>
+
+</footer>
+
+
+
+
+
+
+
+
+
+</div> 
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
